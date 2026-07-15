@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /auth
+Disallow: /dashboard
+Disallow: /agenda
+Disallow: /clientes
+Disallow: /profissionais
+Disallow: /servicos
+Disallow: /financeiro
+Disallow: /estoque
+Disallow: /configuracoes
