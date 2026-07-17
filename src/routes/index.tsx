@@ -50,7 +50,7 @@ function LandingPage() {
               Entrar
             </Link>
             <Button asChild size="sm" className="rounded-full">
-              <a href="#agendar">Agendar</a>
+              <Link to="/agendar">Agendar</Link>
             </Button>
           </nav>
         </div>
@@ -79,11 +79,11 @@ function LandingPage() {
               sob medida para você.
             </p>
             <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
-              <Button asChild size="lg" className="rounded-full">
-                <a href="#agendar">
+              <Button asChild size="lg" className="rounded-full bg-tiffany text-tiffany-foreground hover:bg-tiffany/90 font-medium">
+                <Link to="/agendar">
                   <Calendar className="mr-2 h-4 w-4" />
                   Agendar horário
-                </a>
+                </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full">
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
@@ -144,8 +144,8 @@ function LandingPage() {
         </div>
 
         <div className="mt-12 flex justify-center">
-          <Button size="lg" className="rounded-full" disabled>
-            Agendamento online em breve
+          <Button asChild size="lg" className="rounded-full bg-tiffany text-tiffany-foreground hover:bg-tiffany/90 font-medium">
+            <Link to="/agendar">Agendar seu Horário Agora</Link>
           </Button>
         </div>
       </section>
