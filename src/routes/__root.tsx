@@ -79,31 +79,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Studio Bela Moça — Estúdio de Beleza" },
+      { title: "Studio Bela Moça — Área Administrativa" },
       {
         name: "description",
-        content:
-          "Studio Bela Moça — estúdio de beleza especializado em extensão de cílios, design de sobrancelhas e cuidados personalizados. Agende online pelo celular.",
+        content: "Área administrativa do Studio Bela Moça.",
       },
       { name: "theme-color", content: "#AEE9E1" },
-      { property: "og:title", content: "Studio Bela Moça — Estúdio de Beleza" },
-      {
-        property: "og:description",
-        content: "Beleza, cuidado e sofisticação em cada detalhe. Agende seu horário online.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "noindex, nofollow" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "manifest", href: "/manifest.json" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap",
-      },
     ],
   }),
   shellComponent: RootShell,
@@ -139,17 +125,6 @@ function RootComponent() {
     });
     return () => sub.subscription.unsubscribe();
   }, [router, queryClient]);
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/sw.js").then(
-          (reg) => console.log("ServiceWorker registrado com sucesso no escopo: ", reg.scope),
-          (err) => console.log("Erro no registro do ServiceWorker: ", err)
-        );
-      });
-    }
-  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
