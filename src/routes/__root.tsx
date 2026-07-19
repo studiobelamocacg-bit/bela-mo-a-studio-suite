@@ -126,17 +126,6 @@ function RootComponent() {
     return () => sub.subscription.unsubscribe();
   }, [router, queryClient]);
 
-  useEffect(() => {
-    if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/sw.js").then(
-          (reg) => console.log("ServiceWorker registrado com sucesso no escopo: ", reg.scope),
-          (err) => console.log("Erro no registro do ServiceWorker: ", err)
-        );
-      });
-    }
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
